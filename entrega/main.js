@@ -1,11 +1,26 @@
-let nombre = prompt("¿Como te llamas?");
-let numeroUno = parseInt(prompt("Numero 1 : ","0"));
-let numeroDos = parseInt(prompt("Numero 2 : ","0"));
+const notaMinAprobacion = 5;
+let AlumnosAprobado = "";
+let AlumnosReprobado = "";
+alert("CALIFICACION FINAL DEL CURSO.");
+let cantAlumnos = parseInt(prompt("¿Cuantos alumnos hay en el curso?"));
 
-console.log("Hola! " + nombre + ", tu numero elegido son : " + numeroUno + " " +numeroDos);
-alert("Hola! " + nombre + ", tu numero elegido son : " + numeroUno + " y " +numeroDos);
+for(let x = 0;x < cantAlumnos;x++)
+{
+    let nomAlumno = prompt("Nombre del alumno : ");
+    let notaAlumno = parseInt(prompt("Nota final de " + nomAlumno + " : "));
+    comprobarAprobacion(nomAlumno,notaAlumno);    
+}
+function comprobarAprobacion(nombre,nota)
+{
+    if(nota >= notaMinAprobacion)
+    {
+        AlumnosAprobado += nombre + "\n";
+    }
+    else
+    {
+        AlumnosReprobado += nombre + "\n"
+    }
+}
 
-let resultado = numeroUno + numeroDos;
-
-console.log("La suma entre numero 1 y numero 2 es : " + resultado);
-alert("La suma entre numero 1 y numero 2 es : " + resultado);
+console.log("ALUMNOS APROBADOS :\n " + AlumnosAprobado);
+console.log("ALUMNOS REPOBRADOS :\n" + AlumnosReprobado);
